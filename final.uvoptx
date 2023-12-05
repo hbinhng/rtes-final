@@ -194,7 +194,7 @@
       <tvExp>0</tvExp>
       <tvExpOptDlg>0</tvExpOptDlg>
       <bDave2>0</bDave2>
-      <PathWithFileName>.\lib\alerts.h</PathWithFileName>
+      <PathWithFileName>.\include\alerts.h</PathWithFileName>
       <FilenameWithoutPath>alerts.h</FilenameWithoutPath>
       <RteFlg>0</RteFlg>
       <bShared>0</bShared>
@@ -206,7 +206,7 @@
       <tvExp>0</tvExp>
       <tvExpOptDlg>0</tvExpOptDlg>
       <bDave2>0</bDave2>
-      <PathWithFileName>.\lib\actions.h</PathWithFileName>
+      <PathWithFileName>.\include\actions.h</PathWithFileName>
       <FilenameWithoutPath>actions.h</FilenameWithoutPath>
       <RteFlg>0</RteFlg>
       <bShared>0</bShared>
@@ -218,7 +218,7 @@
       <tvExp>0</tvExp>
       <tvExpOptDlg>0</tvExpOptDlg>
       <bDave2>0</bDave2>
-      <PathWithFileName>.\lib\state.h</PathWithFileName>
+      <PathWithFileName>.\include\state.h</PathWithFileName>
       <FilenameWithoutPath>state.h</FilenameWithoutPath>
       <RteFlg>0</RteFlg>
       <bShared>0</bShared>

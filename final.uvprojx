@@ -390,17 +390,17 @@
             <File>
               <FileName>alerts.h</FileName>
               <FileType>5</FileType>
-              <FilePath>.\lib\alerts.h</FilePath>
+              <FilePath>.\include\alerts.h</FilePath>
             </File>
             <File>
               <FileName>actions.h</FileName>
               <FileType>5</FileType>
-              <FilePath>.\lib\actions.h</FilePath>
+              <FilePath>.\include\actions.h</FilePath>
             </File>
             <File>
               <FileName>state.h</FileName>
               <FileType>5</FileType>
-              <FilePath>.\lib\state.h</FilePath>
+              <FilePath>.\include\state.h</FilePath>
             </File>
           </Files>
         </Group>
