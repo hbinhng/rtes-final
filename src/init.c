@@ -13,8 +13,7 @@
 
 #define GLED_VREG (PTD->PDOR)
 
-_Bool blinking = 0;
-
+static inline void alertsInit();
 void alertsInit() {	
 	/* Enable LEDs */
 	
@@ -40,6 +39,7 @@ void alertsInit() {
 	/* LCD_12 */ PORTB->PCR[11] = GPIOMODE;
 }
 
+static inline void actionsInit();
 void actionsInit() {
 }
 

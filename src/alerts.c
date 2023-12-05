@@ -1,5 +1,7 @@
 #include "../include/alerts.h"
 
+_Bool blinking = 0;
+
 void setDisplay(char value) {
 }
 
