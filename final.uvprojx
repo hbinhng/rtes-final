@@ -10,6 +10,7 @@
       <TargetName>Target 1</TargetName>
       <ToolsetNumber>0x4</ToolsetNumber>
       <ToolsetName>ARM-ADS</ToolsetName>
+      <pCCUsed>5060750::V5.06 update 6 (build 750)::ARMCC</pCCUsed>
       <uAC6>0</uAC6>
       <TargetOption>
         <TargetCommonOption>
@@ -380,6 +381,37 @@
       <Groups>
         <Group>
           <GroupName>Source Group 1</GroupName>
+          <Files>
+            <File>
+              <FileName>main.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>.\src\main.c</FilePath>
+            </File>
+            <File>
+              <FileName>alerts.h</FileName>
+              <FileType>5</FileType>
+              <FilePath>.\lib\alerts.h</FilePath>
+            </File>
+            <File>
+              <FileName>actions.h</FileName>
+              <FileType>5</FileType>
+              <FilePath>.\lib\actions.h</FilePath>
+            </File>
+            <File>
+              <FileName>state.h</FileName>
+              <FileType>5</FileType>
+              <FilePath>.\lib\state.h</FilePath>
+            </File>
+          </Files>
+        </Group>
+        <Group>
+          <GroupName>::Board Support</GroupName>
+        </Group>
+        <Group>
+          <GroupName>::CMSIS</GroupName>
+        </Group>
+        <Group>
+          <GroupName>::Device</GroupName>
         </Group>
       </Groups>
     </Target>
@@ -387,8 +419,180 @@
 
   <RTE>
     <apis/>
-    <components/>
-    <files/>
+    <components>
+      <component Cclass="CMSIS" Cgroup="CORE" Cvendor="ARM" Cversion="5.1.2" condition="ARMv6_7_8-M Device">
+        <package name="CMSIS" schemaVersion="1.3" url="http://www.keil.com/pack/" vendor="ARM" version="5.4.0"/>
+        <targetInfos>
+          <targetInfo name="Target 1"/>
+        </targetInfos>
+      </component>
+      <component Cclass="Board Support" Cgroup="SDK Project Template" Csub="project_template" Cvariant="MKL46Z4" Cvendor="NXP" Cversion="1.0.0" condition="devices.MKL46Z4_device.MKL46Z4_device.MKL46Z4_startup_driver.clock_driver.common_driver.gpio_driver.i2c_driver.lpsci_driver.port_driver.smc_driver.uart_utility.debug_console">
+        <package license="Licenses.txt" name="MKL46Z4_DFP" schemaVersion="1.4" url="http://mcuxpresso.nxp.com/cmsis_pack/repo/" vendor="NXP" version="10.0.3"/>
+        <targetInfos>
+          <targetInfo name="Target 1"/>
+        </targetInfos>
+      </component>
+      <component Cclass="Device" Cgroup="SDK Drivers" Csub="clock" Cvendor="NXP" Cversion="2.1.0" condition="device.MKL46Z4_driver.common">
+        <package license="Licenses.txt" name="MKL46Z4_DFP" schemaVersion="1.4" url="http://mcuxpresso.nxp.com/cmsis_pack/repo/" vendor="NXP" version="10.0.3"/>
+        <targetInfos>
+          <targetInfo name="Target 1"/>
+        </targetInfos>
+      </component>
+      <component Cclass="Device" Cgroup="SDK Drivers" Csub="common" Cvendor="NXP" Cversion="2.0.0" condition="device.MKL46Z4_driver.common">
+        <package license="Licenses.txt" name="MKL46Z4_DFP" schemaVersion="1.4" url="http://mcuxpresso.nxp.com/cmsis_pack/repo/" vendor="NXP" version="10.0.3"/>
+        <targetInfos>
+          <targetInfo name="Target 1"/>
+        </targetInfos>
+      </component>
+      <component Cclass="Device" Cgroup="SDK Drivers" Csub="gpio" Cvendor="NXP" Cversion="2.2.1" condition="device.MKL46Z4_driver.common">
+        <package license="Licenses.txt" name="MKL46Z4_DFP" schemaVersion="1.4" url="http://mcuxpresso.nxp.com/cmsis_pack/repo/" vendor="NXP" version="10.0.3"/>
+        <targetInfos>
+          <targetInfo name="Target 1"/>
+        </targetInfos>
+      </component>
+      <component Cclass="Device" Cgroup="SDK Utilities" Csub="debug_console" Cvendor="NXP" Cversion="1.0.0" condition="device.MKL46Z4">
+        <package license="Licenses.txt" name="MKL46Z4_DFP" schemaVersion="1.4" url="http://mcuxpresso.nxp.com/cmsis_pack/repo/" vendor="NXP" version="10.0.3"/>
+        <targetInfos>
+          <targetInfo name="Target 1"/>
+        </targetInfos>
+      </component>
+      <component Cclass="Device" Cgroup="Startup" Cvendor="NXP" Cversion="1.0.0" condition="devices.MKL46Z4_platform.Include_core_cm0plus">
+        <package license="Licenses.txt" name="MKL46Z4_DFP" schemaVersion="1.4" url="http://mcuxpresso.nxp.com/cmsis_pack/repo/" vendor="NXP" version="10.0.3"/>
+        <targetInfos>
+          <targetInfo name="Target 1"/>
+        </targetInfos>
+      </component>
+    </components>
+    <files>
+      <file attr="config" category="sourceC" name="project_template\board.c" version="1.0.0">
+        <instance index="0">RTE\Board_Support\MKL46Z256VLL4\board.c</instance>
+        <component Cclass="Board Support" Cgroup="SDK Project Template" Csub="project_template" Cvariant="MKL46Z4" Cvendor="NXP" Cversion="1.0.0" condition="devices.MKL46Z4_device.MKL46Z4_device.MKL46Z4_startup_driver.clock_driver.common_driver.gpio_driver.i2c_driver.lpsci_driver.port_driver.smc_driver.uart_utility.debug_console" isDefaultVariant="1"/>
+        <package license="Licenses.txt" name="MKL46Z4_DFP" schemaVersion="1.4" url="http://mcuxpresso.nxp.com/cmsis_pack/repo/" vendor="NXP" version="10.0.3"/>
+        <targetInfos>
+          <targetInfo name="Target 1"/>
+        </targetInfos>
+      </file>
+      <file attr="config" category="header" name="project_template\board.h" version="1.0.0">
+        <instance index="0">RTE\Board_Support\MKL46Z256VLL4\board.h</instance>
+        <component Cclass="Board Support" Cgroup="SDK Project Template" Csub="project_template" Cvariant="MKL46Z4" Cvendor="NXP" Cversion="1.0.0" condition="devices.MKL46Z4_device.MKL46Z4_device.MKL46Z4_startup_driver.clock_driver.common_driver.gpio_driver.i2c_driver.lpsci_driver.port_driver.smc_driver.uart_utility.debug_console" isDefaultVariant="1"/>
+        <package license="Licenses.txt" name="MKL46Z4_DFP" schemaVersion="1.4" url="http://mcuxpresso.nxp.com/cmsis_pack/repo/" vendor="NXP" version="10.0.3"/>
+        <targetInfos>
+          <targetInfo name="Target 1"/>
+        </targetInfos>
+      </file>
+      <file attr="config" category="sourceC" name="project_template\clock_config.c" version="1.0.0">
+        <instance index="0">RTE\Board_Support\MKL46Z256VLL4\clock_config.c</instance>
+        <component Cclass="Board Support" Cgroup="SDK Project Template" Csub="project_template" Cvariant="MKL46Z4" Cvendor="NXP" Cversion="1.0.0" condition="devices.MKL46Z4_device.MKL46Z4_device.MKL46Z4_startup_driver.clock_driver.common_driver.gpio_driver.i2c_driver.lpsci_driver.port_driver.smc_driver.uart_utility.debug_console" isDefaultVariant="1"/>
+        <package license="Licenses.txt" name="MKL46Z4_DFP" schemaVersion="1.4" url="http://mcuxpresso.nxp.com/cmsis_pack/repo/" vendor="NXP" version="10.0.3"/>
+        <targetInfos>
+          <targetInfo name="Target 1"/>
+        </targetInfos>
+      </file>
+      <file attr="config" category="header" name="project_template\clock_config.h" version="1.0.0">
+        <instance index="0">RTE\Board_Support\MKL46Z256VLL4\clock_config.h</instance>
+        <component Cclass="Board Support" Cgroup="SDK Project Template" Csub="project_template" Cvariant="MKL46Z4" Cvendor="NXP" Cversion="1.0.0" condition="devices.MKL46Z4_device.MKL46Z4_device.MKL46Z4_startup_driver.clock_driver.common_driver.gpio_driver.i2c_driver.lpsci_driver.port_driver.smc_driver.uart_utility.debug_console" isDefaultVariant="1"/>
+        <package license="Licenses.txt" name="MKL46Z4_DFP" schemaVersion="1.4" url="http://mcuxpresso.nxp.com/cmsis_pack/repo/" vendor="NXP" version="10.0.3"/>
+        <targetInfos>
+          <targetInfo name="Target 1"/>
+        </targetInfos>
+      </file>
+      <file attr="config" category="sourceC" name="project_template\peripherals.c" version="1.0.0">
+        <instance index="0">RTE\Board_Support\MKL46Z256VLL4\peripherals.c</instance>
+        <component Cclass="Board Support" Cgroup="SDK Project Template" Csub="project_template" Cvariant="MKL46Z4" Cvendor="NXP" Cversion="1.0.0" condition="devices.MKL46Z4_device.MKL46Z4_device.MKL46Z4_startup_driver.clock_driver.common_driver.gpio_driver.i2c_driver.lpsci_driver.port_driver.smc_driver.uart_utility.debug_console" isDefaultVariant="1"/>
+        <package license="Licenses.txt" name="MKL46Z4_DFP" schemaVersion="1.4" url="http://mcuxpresso.nxp.com/cmsis_pack/repo/" vendor="NXP" version="10.0.3"/>
+        <targetInfos>
+          <targetInfo name="Target 1"/>
+        </targetInfos>
+      </file>
+      <file attr="config" category="header" name="project_template\peripherals.h" version="1.0.0">
+        <instance index="0">RTE\Board_Support\MKL46Z256VLL4\peripherals.h</instance>
+        <component Cclass="Board Support" Cgroup="SDK Project Template" Csub="project_template" Cvariant="MKL46Z4" Cvendor="NXP" Cversion="1.0.0" condition="devices.MKL46Z4_device.MKL46Z4_device.MKL46Z4_startup_driver.clock_driver.common_driver.gpio_driver.i2c_driver.lpsci_driver.port_driver.smc_driver.uart_utility.debug_console" isDefaultVariant="1"/>
+        <package license="Licenses.txt" name="MKL46Z4_DFP" schemaVersion="1.4" url="http://mcuxpresso.nxp.com/cmsis_pack/repo/" vendor="NXP" version="10.0.3"/>
+        <targetInfos>
+          <targetInfo name="Target 1"/>
+        </targetInfos>
+      </file>
+      <file attr="config" category="sourceC" name="project_template\pin_mux.c" version="1.0.0">
+        <instance index="0">RTE\Board_Support\MKL46Z256VLL4\pin_mux.c</instance>
+        <component Cclass="Board Support" Cgroup="SDK Project Template" Csub="project_template" Cvariant="MKL46Z4" Cvendor="NXP" Cversion="1.0.0" condition="devices.MKL46Z4_device.MKL46Z4_device.MKL46Z4_startup_driver.clock_driver.common_driver.gpio_driver.i2c_driver.lpsci_driver.port_driver.smc_driver.uart_utility.debug_console" isDefaultVariant="1"/>
+        <package license="Licenses.txt" name="MKL46Z4_DFP" schemaVersion="1.4" url="http://mcuxpresso.nxp.com/cmsis_pack/repo/" vendor="NXP" version="10.0.3"/>
+        <targetInfos>
+          <targetInfo name="Target 1"/>
+        </targetInfos>
+      </file>
+      <file attr="config" category="header" name="project_template\pin_mux.h" version="1.0.0">
+        <instance index="0">RTE\Board_Support\MKL46Z256VLL4\pin_mux.h</instance>
+        <component Cclass="Board Support" Cgroup="SDK Project Template" Csub="project_template" Cvariant="MKL46Z4" Cvendor="NXP" Cversion="1.0.0" condition="devices.MKL46Z4_device.MKL46Z4_device.MKL46Z4_startup_driver.clock_driver.common_driver.gpio_driver.i2c_driver.lpsci_driver.port_driver.smc_driver.uart_utility.debug_console" isDefaultVariant="1"/>
+        <package license="Licenses.txt" name="MKL46Z4_DFP" schemaVersion="1.4" url="http://mcuxpresso.nxp.com/cmsis_pack/repo/" vendor="NXP" version="10.0.3"/>
+        <targetInfos>
+          <targetInfo name="Target 1"/>
+        </targetInfos>
+      </file>
+      <file attr="config" category="linkerScript" condition="devices.MKL46Z256xxx4_mdk" name="arm\MKL46Z256xxx4_flash.scf" version="1.0.0">
+        <instance index="0">RTE\Device\MKL46Z256VLL4\MKL46Z256xxx4_flash.scf</instance>
+        <component Cclass="Device" Cgroup="Startup" Cvendor="NXP" Cversion="1.0.0" condition="devices.MKL46Z4_platform.Include_core_cm0plus"/>
+        <package license="Licenses.txt" name="MKL46Z4_DFP" schemaVersion="1.4" url="http://mcuxpresso.nxp.com/cmsis_pack/repo/" vendor="NXP" version="10.0.3"/>
+        <targetInfos>
+          <targetInfo name="Target 1"/>
+        </targetInfos>
+      </file>
+      <file attr="config" category="linkerScript" condition="devices.MKL46Z256xxx4_mdk" name="arm\MKL46Z256xxx4_ram.scf" version="1.0.0">
+        <instance index="0">RTE\Device\MKL46Z256VLL4\MKL46Z256xxx4_ram.scf</instance>
+        <component Cclass="Device" Cgroup="Startup" Cvendor="NXP" Cversion="1.0.0" condition="devices.MKL46Z4_platform.Include_core_cm0plus"/>
+        <package license="Licenses.txt" name="MKL46Z4_DFP" schemaVersion="1.4" url="http://mcuxpresso.nxp.com/cmsis_pack/repo/" vendor="NXP" version="10.0.3"/>
+        <targetInfos>
+          <targetInfo name="Target 1"/>
+        </targetInfos>
+      </file>
+      <file attr="config" category="header" name="MKL46Z4.h" version="1.0.0">
+        <instance index="0">RTE\Device\MKL46Z256VLL4\MKL46Z4.h</instance>
+        <component Cclass="Device" Cgroup="Startup" Cvendor="NXP" Cversion="1.0.0" condition="devices.MKL46Z4_platform.Include_core_cm0plus"/>
+        <package license="Licenses.txt" name="MKL46Z4_DFP" schemaVersion="1.4" url="http://mcuxpresso.nxp.com/cmsis_pack/repo/" vendor="NXP" version="10.0.3"/>
+        <targetInfos>
+          <targetInfo name="Target 1"/>
+        </targetInfos>
+      </file>
+      <file attr="config" category="header" name="MKL46Z4_features.h" version="1.0.0">
+        <instance index="0">RTE\Device\MKL46Z256VLL4\MKL46Z4_features.h</instance>
+        <component Cclass="Device" Cgroup="Startup" Cvendor="NXP" Cversion="1.0.0" condition="devices.MKL46Z4_platform.Include_core_cm0plus"/>
+        <package license="Licenses.txt" name="MKL46Z4_DFP" schemaVersion="1.4" url="http://mcuxpresso.nxp.com/cmsis_pack/repo/" vendor="NXP" version="10.0.3"/>
+        <targetInfos>
+          <targetInfo name="Target 1"/>
+        </targetInfos>
+      </file>
+      <file attr="config" category="header" name="fsl_device_registers.h" version="1.0.0">
+        <instance index="0">RTE\Device\MKL46Z256VLL4\fsl_device_registers.h</instance>
+        <component Cclass="Device" Cgroup="Startup" Cvendor="NXP" Cversion="1.0.0" condition="devices.MKL46Z4_platform.Include_core_cm0plus"/>
+        <package license="Licenses.txt" name="MKL46Z4_DFP" schemaVersion="1.4" url="http://mcuxpresso.nxp.com/cmsis_pack/repo/" vendor="NXP" version="10.0.3"/>
+        <targetInfos>
+          <targetInfo name="Target 1"/>
+        </targetInfos>
+      </file>
+      <file attr="config" category="sourceAsm" condition="mdk" name="arm\startup_MKL46Z4.s" version="1.0.0">
+        <instance index="0">RTE\Device\MKL46Z256VLL4\startup_MKL46Z4.s</instance>
+        <component Cclass="Device" Cgroup="Startup" Cvendor="NXP" Cversion="1.0.0" condition="devices.MKL46Z4_platform.Include_core_cm0plus"/>
+        <package license="Licenses.txt" name="MKL46Z4_DFP" schemaVersion="1.4" url="http://mcuxpresso.nxp.com/cmsis_pack/repo/" vendor="NXP" version="10.0.3"/>
+        <targetInfos>
+          <targetInfo name="Target 1"/>
+        </targetInfos>
+      </file>
+      <file attr="config" category="sourceC" name="system_MKL46Z4.c" version="1.0.0">
+        <instance index="0">RTE\Device\MKL46Z256VLL4\system_MKL46Z4.c</instance>
+        <component Cclass="Device" Cgroup="Startup" Cvendor="NXP" Cversion="1.0.0" condition="devices.MKL46Z4_platform.Include_core_cm0plus"/>
+        <package license="Licenses.txt" name="MKL46Z4_DFP" schemaVersion="1.4" url="http://mcuxpresso.nxp.com/cmsis_pack/repo/" vendor="NXP" version="10.0.3"/>
+        <targetInfos>
+          <targetInfo name="Target 1"/>
+        </targetInfos>
+      </file>
+      <file attr="config" category="header" name="system_MKL46Z4.h" version="1.0.0">
+        <instance index="0">RTE\Device\MKL46Z256VLL4\system_MKL46Z4.h</instance>
+        <component Cclass="Device" Cgroup="Startup" Cvendor="NXP" Cversion="1.0.0" condition="devices.MKL46Z4_platform.Include_core_cm0plus"/>
+        <package license="Licenses.txt" name="MKL46Z4_DFP" schemaVersion="1.4" url="http://mcuxpresso.nxp.com/cmsis_pack/repo/" vendor="NXP" version="10.0.3"/>
+        <targetInfos>
+          <targetInfo name="Target 1"/>
+        </targetInfos>
+      </file>
+    </files>
   </RTE>
 
 </Project>
