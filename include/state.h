@@ -1,5 +1,5 @@
-#ifndef RTES_FINAL_LIB_STATE_H
-#define RTES_FINAL_LIB_STATE_H
+#ifndef RTES_FINAL_INCLUDE_STATE_H
+#define RTES_FINAL_INCLUDE_STATE_H
 
 #include <stdbool.h>
 
@@ -8,4 +8,4 @@ typedef struct {
 	_Bool belted;
 } State;
 
-#endif // RTES_FINAL_LIB_STATE_H
+#endif // RTES_FINAL_INCLUDE_STATE_H

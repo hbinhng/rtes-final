@@ -402,6 +402,26 @@
               <FileType>5</FileType>
               <FilePath>.\include\state.h</FilePath>
             </File>
+            <File>
+              <FileName>alerts.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>.\src\alerts.c</FilePath>
+            </File>
+            <File>
+              <FileName>init.h</FileName>
+              <FileType>5</FileType>
+              <FilePath>.\include\init.h</FilePath>
+            </File>
+            <File>
+              <FileName>init.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>.\src\init.c</FilePath>
+            </File>
+            <File>
+              <FileName>actions.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>.\src\actions.c</FilePath>
+            </File>
           </Files>
         </Group>
         <Group>

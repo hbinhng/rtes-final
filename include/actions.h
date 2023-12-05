@@ -1,5 +1,5 @@
-#ifndef RTES_FINAL_LIB_ACTIONS_H
-#define RTES_FINAL_LIB_ACTIONS_H
+#ifndef RTES_FINAL_INCLUDE_ACTIONS_H
+#define RTES_FINAL_INCLUDE_ACTIONS_H
 
 #include "state.h"
 
@@ -9,4 +9,4 @@ void getOutCar(State *state);
 void fastenSeatBelt(State *state);
 void unfastenSeatBelt(State *state);
 
-#endif // RTES_FINAL_LIB_ACTIONS_H
+#endif // RTES_FINAL_INCLUDE_ACTIONS_H
