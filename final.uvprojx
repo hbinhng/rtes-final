@@ -422,6 +422,16 @@
               <FileType>1</FileType>
               <FilePath>.\src\actions.c</FilePath>
             </File>
+            <File>
+              <FileName>Seg_LCD.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>.\lib\Seg_LCD.c</FilePath>
+            </File>
+            <File>
+              <FileName>Seg_LCD.h</FileName>
+              <FileType>5</FileType>
+              <FilePath>.\lib\Seg_LCD.h</FilePath>
+            </File>
           </Files>
         </Group>
         <Group>
