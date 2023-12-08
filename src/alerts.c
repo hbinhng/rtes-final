@@ -1,15 +1,15 @@
 #include "../include/alerts.h"
+#include "../lib/Seg_LCD.h"
 
 _Bool blinking = 0;
 
 void setDisplay(char value) {
+	SegLCD_Set(value / 10, 3);
+	SegLCD_Set(value % 10, 4);
 }
 
-void clearDisplay() {
+void startBlink(void) {
 }
 
-void startBlink() {
-}
-
-void stopBlink() {
+void stopBlink(void) {
 }

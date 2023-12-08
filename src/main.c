@@ -11,7 +11,7 @@
 
 #include <stdlib.h>
 
-int main() {
+int main(void) {
 	BOARD_InitPins();
 	BOARD_BootClockRUN();
 	BOARD_InitDebugConsole();
@@ -19,6 +19,11 @@ int main() {
 	init();
 	
 	State *state = (State*)malloc(sizeof(State));
+
+	setDisplay(00);
 	
-	return 0;
+	while (1) {
+		_Bool isSwitchClicked = (PTC->PDIR >> 3) & 1;
+		PRINTF("%d\r\n", isSwitchClicked);
+	}
 }

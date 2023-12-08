@@ -8,38 +8,29 @@
 #include "../lib/Seg_LCD.h"
 
 #define GPIOMODE 0x100
-#define BPORT_CLOCK 0x400
-#define CPORT_CLOCK 0x800
-#define DPORT_CLOCK 0x1000
-#define EPORT_CLOCK 0x2000
 
-#define GLEDBIT 0x20
-#define GLEDPIN 5
-
-#define GLED_VREG (PTD->PDOR)
-
-void alertsInit() {	
+void alertsInit(void) {	
 	/* Enable LEDs */
 	
 	// Enable Green LED
-	PORTD->PCR[GLEDPIN] = GPIOMODE;
-	PTD->PDDR |= GLEDBIT;
-	GLED_VREG |= GLEDBIT;
-	GLED_VREG ^= GLEDBIT;
+	BOARD_LED_GREEN_GPIO_PORT->PCR[BOARD_LED_GREEN_GPIO_PIN] = GPIOMODE;
+	PTD->PDDR |= 1 << BOARD_LED_GREEN_GPIO_PIN;
+	
+	LED_GREEN_OFF();
 	
 	/* Enable LCD */
 	
 	SegLCD_Init();
 }
 
-void actionsInit() {
+void actionsInit(void) {
 	/* Enable Switches */
 	
 	PORTC->PCR[3] = GPIOMODE | PORT_PCR_PE_MASK | PORT_PCR_PS_MASK;
 	PTC->PDDR &= ~0x8;
 }
 
-void init() {
+void init(void) {
 	SIM->SCGC5 = SIM->SCGC5
 		| SIM_SCGC5_PORTB_MASK
 		| SIM_SCGC5_PORTC_MASK

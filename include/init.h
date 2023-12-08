@@ -1,6 +1,6 @@
 #ifndef RTES_FINAL_INCLUDE_INIT_H
 #define RTES_FINAL_INCLUDE_INIT_H
 
-void init();
+void init(void);
 
 #endif // RTES_FINAL_INCLUDE_INIT_H
