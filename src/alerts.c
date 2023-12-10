@@ -3,9 +3,12 @@
 
 _Bool blinking = 0;
 
+#define last(value) ((value) % 10)
+
 void setDisplay(char value) {
-	SegLCD_Set(value / 10, 3);
-	SegLCD_Set(value % 10, 4);
+	SegLCD_Set(last(value / 100), 2);
+	SegLCD_Set(last(value / 10), 3);
+	SegLCD_Set(last(value), 4);
 }
 
 void startBlink(void) {
