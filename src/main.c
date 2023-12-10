@@ -20,10 +20,12 @@ int main(void) {
 	
 	State *state = (State*)malloc(sizeof(State));
 
-	setDisplay(00);
+	setDisplay(0);
 	
 	while (1) {
-		_Bool isSwitchClicked = (PTC->PDIR >> 3) & 1;
-		PRINTF("%d\r\n", isSwitchClicked);
+		_Bool isSwitch1Clicked = ~((PTC->PDIR >> 3) & 1);
+		_Bool isSwitch3Clicked = 0;
+
+		seatTrigger(state, isSwitch1Clicked);
 	}
 }
