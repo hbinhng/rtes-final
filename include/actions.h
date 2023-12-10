@@ -3,6 +3,8 @@
 
 #include "state.h"
 
+void seatTrigger(State *state, _Bool value);
+
 void getInCar(State *state);
 void getOutCar(State *state);
 
