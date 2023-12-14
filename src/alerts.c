@@ -3,7 +3,17 @@
 
 _Bool blinking = 0;
 
+#define MAX_TIMER_START (2147483647)
+#define TICK_INTERVAL 5
 #define last(value) ((value) % 10)
+
+int alertTimerStart = MAX_TIMER_START;
+
+void SysTick_Alert_Handler(void) {
+	if (alertTimerStart == MAX_TIMER_START) return;
+	
+	alertTimerStart += TICK_INTERVAL;
+}
 
 void setDisplay(char value) {
 	SegLCD_Set(last(value / 100), 2);
@@ -12,6 +22,7 @@ void setDisplay(char value) {
 }
 
 void startBlink(void) {
+	
 }
 
 void stopBlink(void) {

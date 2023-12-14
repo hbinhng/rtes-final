@@ -11,12 +11,12 @@
 #define TICK_INTERVAL 5
 
 _Bool lastSeatTriggerState = false;
-int timerStart = MAX_TIMER_START;
+int actionTimerStart = MAX_TIMER_START;
 
-void SysTick_Handler(void) {
-	if (timerStart == MAX_TIMER_START) return;
+void SysTick_Action_Handler(void) {
+	if (actionTimerStart == MAX_TIMER_START) return;
 
-	timerStart += TICK_INTERVAL;
+	actionTimerStart += TICK_INTERVAL;
 }
 
 void seatTrigger(State *state, _Bool value) {
@@ -34,13 +34,13 @@ void seatTrigger(State *state, _Bool value) {
 
 void getInCar(State *state) {
 	state->seated = true;
-	timerStart = 0;
+	actionTimerStart = 0;
 	setDisplay(1);
 }
 
 void getOutCar(State *state) {
 	state->seated = false;
-	timerStart = MAX_TIMER_START;
+	actionTimerStart = MAX_TIMER_START;
 	setDisplay(0);
 }
 

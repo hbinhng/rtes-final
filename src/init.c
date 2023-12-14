@@ -9,6 +9,14 @@
 
 #define GPIOMODE 0x100
 
+void SysTick_Alert_Handler(void);
+void SysTick_Action_Handler(void);
+
+void SysTick_Handler(void) {
+	SysTick_Alert_Handler();
+	SysTick_Action_Handler();
+}
+
 void alertsInit(void) {	
 	/* Enable LEDs */
 	
