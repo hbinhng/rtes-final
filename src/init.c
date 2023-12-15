@@ -4,6 +4,7 @@
 #include "MKL46Z4.h"
 #include "pin_mux.h"
 
+#include "../include/actions.h"
 #include "../include/init.h"
 #include "../lib/Seg_LCD.h"
 
@@ -34,8 +35,13 @@ void alertsInit(void) {
 void actionsInit(void) {
 	/* Enable Switches */
 	
+	// Enable SW1
 	PORTC->PCR[3] = GPIOMODE | PORT_PCR_PE_MASK | PORT_PCR_PS_MASK;
-	PTC->PDDR &= ~0x8;
+	PTC->PDDR &= ~SW1_MASK;
+
+	// Enable SW3
+	PORTC->PCR[12] = GPIOMODE | PORT_PCR_PE_MASK | PORT_PCR_PS_MASK;
+	PTC->PDDR &= ~SW3_MASK;
 }
 
 void init(void) {
