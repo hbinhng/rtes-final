@@ -4,13 +4,11 @@
 #include "MKL46Z4.h"
 #include "pin_mux.h"
 
+#include "../include/init.h"
 #include "../include/alerts.h"
 #include "../lib/Seg_LCD.h"
 
-_Bool blinking = 0;
-
-#define TICK_INTERVAL 5
-#define last(value) ((value) % 10)
+_Bool blinking = false;
 
 int alertTimer = 0;
 
@@ -20,24 +18,24 @@ void SysTick_Alert_Handler(void) {
 	
 	alertTimer += TICK_INTERVAL;
 	
-	if (blinking == 1) {
+	if (blinking) {
 		if (alertTimer % 50 == 0)
-			LED_GREEN_TOGGLE();
+			PTD->PDOR ^= (1 << BOARD_LED_GREEN_GPIO_PIN);
 	}
 }
 
 void setDisplay(char value) {
-	SegLCD_Set(last(value / 100), 2);
-	SegLCD_Set(last(value / 10), 3);
-	SegLCD_Set(last(value), 4);
+	SegLCD_Set((value & 4) >> 2, 2);
+	SegLCD_Set((value & 2) >> 1, 3);
+	SegLCD_Set(value & 1, 4);
 }
 
 void startBlink(void) {
-	blinking = 1;
+	blinking = true;
 }
 
 void stopBlink(void) {
-	blinking = 0;
+	blinking = false;
 	
-	LED_GREEN_OFF();
+	PTD->PDOR |= (1 << BOARD_LED_GREEN_GPIO_PIN);
 }
