@@ -63,6 +63,8 @@ void getInCar() {
 }
 
 void getOutCar() {
+	if (state->belted) return;
+
 	state->seated = false;
 	state->belted = false;
 	actionTimerStart = MAX_TIMER_START;
