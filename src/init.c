@@ -25,7 +25,7 @@ void alertsInit(void) {
 	BOARD_LED_GREEN_GPIO_PORT->PCR[BOARD_LED_GREEN_GPIO_PIN] = GPIOMODE;
 	PTD->PDDR |= 1 << BOARD_LED_GREEN_GPIO_PIN;
 	
-	LED_GREEN_OFF();
+	PTD->PDOR |= (1 << BOARD_LED_GREEN_GPIO_PIN);
 	
 	/* Enable LCD */
 	
@@ -52,6 +52,9 @@ void init(void) {
 		| SIM_SCGC5_PORTE_MASK
 		| SIM_SCGC5_SLCD_MASK;
 	
+	SysTick->LOAD = SystemCoreClock * TICK_INTERVAL / ONE_SECOND;
+	SysTick->CTRL = SysTick_CTRL_CLKSOURCE_Msk | SysTick_CTRL_TICKINT_Msk | SysTick_CTRL_ENABLE_Msk;
+
 	alertsInit();
 	actionsInit();
 }

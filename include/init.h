@@ -1,6 +1,9 @@
 #ifndef RTES_FINAL_INCLUDE_INIT_H
 #define RTES_FINAL_INCLUDE_INIT_H
 
+#define TICK_INTERVAL 5
+#define ONE_SECOND 1000
+
 void init(void);
 
 #endif // RTES_FINAL_INCLUDE_INIT_H
