@@ -11,21 +11,28 @@
 
 #include <stdlib.h>
 
+State *state;
+
 int main(void) {
 	BOARD_InitPins();
 	BOARD_BootClockRUN();
 	BOARD_InitDebugConsole();
-	
+
 	init();
-	
-	State *state = (State*)malloc(sizeof(State));
 
-	setDisplay(0);
-	
+	state = (State*)malloc(sizeof(State));
+
+	state->status = 0;
+
 	while (1) {
-		_Bool isSwitch1Clicked = ~((PTC->PDIR >> 3) & 1);
-		_Bool isSwitch3Clicked = 0;
+		setDisplay(state->status);
+		if (state->status >> 2) startBlink();
+		else stopBlink();
 
-		seatTrigger(state, isSwitch1Clicked);
+		_Bool isSwitch1Clicked = 1 - ((PTC->PDIR >> SW1_PIN) & 1);
+		_Bool isSwitch3Clicked = 1 - ((PTC->PDIR >> SW3_PIN) & 1);
+
+		seatTrigger(isSwitch1Clicked);
+		beltTrigger(isSwitch3Clicked);
 	}
 }

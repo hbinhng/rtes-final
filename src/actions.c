@@ -4,22 +4,30 @@
 #include "MKL46Z4.h"
 #include "pin_mux.h"
 
+#include "../include/init.h"
 #include "../include/actions.h"
 #include "../include/alerts.h"
 
 #define MAX_TIMER_START (2147483647)
-#define TICK_INTERVAL 5
+
+extern State *state;
 
 _Bool lastSeatTriggerState = false;
+_Bool lastBeltTriggerState = false;
 int actionTimerStart = MAX_TIMER_START;
 
 void SysTick_Action_Handler(void) {
 	if (actionTimerStart == MAX_TIMER_START) return;
 
 	actionTimerStart += TICK_INTERVAL;
+
+	if (actionTimerStart == 10 * ONE_SECOND) {
+		state->status |= 4;
+		actionTimerStart = MAX_TIMER_START;
+	}
 }
 
-void seatTrigger(State *state, _Bool value) {
+void seatTrigger(_Bool value) {
 	if (lastSeatTriggerState == value) return;
 
 	if (lastSeatTriggerState == true && value == false) {
@@ -32,22 +40,44 @@ void seatTrigger(State *state, _Bool value) {
 	lastSeatTriggerState = value;
 }
 
-void getInCar(State *state) {
+void beltTrigger(_Bool value) {
+	if (lastBeltTriggerState == value) return;
+	if (state->seated == false) goto final;
+
+	if (lastBeltTriggerState == true && value == false) {
+		if (state->belted)
+			unfastenSeatBelt(state);
+		else
+			fastenSeatBelt(state);
+	}
+
+	final:
+	lastBeltTriggerState = value;
+}
+
+void getInCar() {
 	state->seated = true;
-	actionTimerStart = 0;
-	setDisplay(1);
-}
-
-void getOutCar(State *state) {
-	state->seated = false;
-	actionTimerStart = MAX_TIMER_START;
-	setDisplay(0);
-}
-
-void fastenSeatBelt(State *state) {
-	state->belted = true;
-}
-
-void unfastenSeatBelt(State *state) {
 	state->belted = false;
+	actionTimerStart = 0;
+	state->status = 1;
+}
+
+void getOutCar() {
+	state->seated = false;
+	state->belted = false;
+	actionTimerStart = MAX_TIMER_START;
+	state->status = 0;
+}
+
+void fastenSeatBelt() {
+	state->belted = true;
+	actionTimerStart = MAX_TIMER_START;
+	state->status |= 2;
+	state->status &= 3;
+}
+
+void unfastenSeatBelt() {
+	state->belted = false;
+	actionTimerStart = 0;
+	state->status &= 1;
 }
