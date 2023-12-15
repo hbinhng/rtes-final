@@ -71,6 +71,9 @@ void getOutCar() {
 
 void fastenSeatBelt() {
 	state->belted = true;
+	actionTimerStart = MAX_TIMER_START;
+	state->status |= 2;
+	state->status &= 3;
 }
 
 void unfastenSeatBelt() {
