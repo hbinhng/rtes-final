@@ -46,8 +46,10 @@ void getOutCar(State *state) {
 
 void fastenSeatBelt(State *state) {
 	state->belted = true;
+	setDisplay(11);
 }
 
 void unfastenSeatBelt(State *state) {
 	state->belted = false;
+	setDisplay(1);
 }
