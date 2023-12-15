@@ -6,6 +6,7 @@
 typedef struct {
 	_Bool seated;
 	_Bool belted;
+	int status;
 } State;
 
 #endif // RTES_FINAL_INCLUDE_STATE_H
